@@ -1,7 +1,7 @@
 // 2-1
 // 1) Set
 // 2) List
-// 3) Set
+// 3) Map
 
 class Person {
   String name;

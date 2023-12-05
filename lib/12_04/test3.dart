@@ -56,4 +56,9 @@ class Wizard {
   }
 }
 
-void main() {}
+void main() {
+ Wand wand = Wand(name: '지팡이', power: 10);
+ print(wand.name);
+ Wizard wizard = Wizard(name: 'Hyuk', hp: 10, mp: 10);
+ print(wizard.name);
+}
