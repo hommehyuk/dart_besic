@@ -1,60 +1,73 @@
-abstract class Asset {
-  String name;
-  int price;
-  String color;
-
-  Asset({
-    required this.name,
-    required this.price,
-    required this.color,
-  });
-}
-
-abstract class IntangibleAsset extends Asset {
-  IntangibleAsset({
-    required String name,
-    required int price,
-    required String color,
-  }) : super(name: name, price: price, color: color);
-}
-
-abstract class TangibleAsset extends Asset {
-  TangibleAsset({
-    required String name,
-    required int price,
-    required String color,
-  }) : super(name: name, price: price, color: color);
+void main() {
+  Thing book = Book(
+    name: 'name',
+    price: 1,
+    color: 'color',
+    isbn: 'isbn',
+    weight: 1,
+  );
 }
 
 class Book extends TangibleAsset {
   String isbn;
 
   Book({
-    required String name,
-    required int price,
-    required String color,
+    required super.name,
+    required super.price,
+    required super.color,
     required this.isbn,
-  }) : super(name: name, price: price, color: color);
+    required super.weight,
+  });
 }
 
 class Computer extends TangibleAsset {
   String makerName;
 
   Computer({
-    required String name,
-    required int price,
-    required String color,
+    required super.name,
+    required super.price,
+    required super.color,
     required this.makerName,
-  }) : super(name: name, price: price, color: color);
+    required super.weight,
+  });
 }
 
-class Patent extends IntangibleAsset {
+abstract class TangibleAsset extends Asset implements Thing {
+  String color;
 
-  Patent({
-    required String name,
-    required int price,
-    required String color,
-  }) : super(name: name, price: price, color: color);
+  // @override
+  // double weight;
+
+  double _weight;
+
+  TangibleAsset({
+    required super.name,
+    required super.price,
+    required this.color,
+    required double weight,
+  }) : _weight = weight;
+
+  @override
+  double get weight => _weight;
+
+  @override
+  set weight(double value) {
+    _weight = value;
+  }
 }
 
-void main() {}
+abstract class Asset {
+  String name;
+  int price;
+
+  Asset({
+    required this.name,
+    required this.price,
+  });
+}
+
+abstract interface class Thing {
+  double get weight;
+
+  set weight(double value);
+}
