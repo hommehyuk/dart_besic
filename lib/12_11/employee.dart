@@ -1,3 +1,7 @@
+// 총무부 리더 ‘홍길동(41세)’의 인스턴스를 생성하고
+// 직렬화하여 company.txt 파일에 쓰는 프로그램을 작성하시오.
+// 직렬화를 위해 위의 2개 클래스를 일부 수정해도 됩니다.
+
 import 'dart:convert';
 import 'dart:io';
 
@@ -8,9 +12,9 @@ class Employee {
   Employee(this.name, this.age);
 
   Map<String, dynamic> toJson() => {
-    'name': name,
-    'age': age,
-  };
+        'name': name,
+        'age': age,
+      };
 }
 
 class Department {
