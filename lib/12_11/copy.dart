@@ -13,6 +13,7 @@ void main() {
     sourceFile.writeAsStringSync('손흥민 월클 입니다');
 
     final text = sourceFile.readAsStringSync();
+
     targetFile.writeAsStringSync(text);
   }
 
